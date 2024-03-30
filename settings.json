@@ -1,0 +1,13 @@
+{
+  "download_path": "default",
+  "ruoyi_path_main": "NotImplemented",
+  "ruoyi_path_vue": "NotImplemented",
+  "mysql": {
+    "if_execute_sql": true,
+    "host": "localhost",
+    "port": 3306,
+    "user": "root",
+    "password": "123456",
+    "database": "ry-vue"
+  }
+}
