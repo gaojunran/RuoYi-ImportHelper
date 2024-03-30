@@ -1,7 +1,7 @@
-# RuoYi-ImportHelper 若依导入助手
+# RuoYi-ImportHelper 若依代码导入助手
 
 ## 简介
-一个简易的Python脚本，将若依生成的代码压缩包预览并直接放入各个目录中，并自动执行SQL代码。
+一个简易的Python脚本，将若依生成的代码压缩包预览、并直接放入各个目录中，同时自动执行SQL代码。
 
 ## 使用简介
 1. 下载项目到本地，在本项目根目录运行`pip install -r requirements.txt`，安装依赖。
