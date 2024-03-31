@@ -1,5 +1,4 @@
 import json
-import logging
 import re
 import shutil
 import zipfile
@@ -13,17 +12,15 @@ DEFAULT_DOWNLOAD = cwd / 'download'
 TEMP_PATH = cwd / 'temp'
 
 
-# print(DEFAULT_DOWNLOAD)
 class WrongConfigException(Exception):
 	def __init__(self, message=None):
 		self.message = message
 
 	def __str__(self):
 		if self.message:
-			return "settings.json中缺少配置或错误配置：" + self.message
+			return "config.json中缺少配置或错误配置：" + self.message
 		else:
-			return "settings.json中缺少配置或错误配置。"
-
+			return "config.json中缺少配置或错误配置。"
 
 
 def load_settings() -> dict:
@@ -31,7 +28,7 @@ def load_settings() -> dict:
 	载入配置并格式化。
 	:return 返回dict类型的配置变量。
 	"""
-	settings: dict = json.loads(open('settings.json').read())
+	settings: dict = json.loads(open('config.json').read())
 
 	try:
 		# 配置download_path
@@ -74,9 +71,12 @@ def get_zip() -> Path:
 	"""
 	files = [file for file in settings['download_path'].glob('*.zip')]
 	zip_ = max(files, key=lambda file: file.stat().st_mtime)
-	print(f"你将操作的文件是`\033[34m{zip_}\033[0m`，请确认无误后连按两次回车！")
-	input()
-	input()
+	if zip_:
+		print(f"你将操作的文件是`\033[34m{zip_}\033[0m`，请确认无误后连按两次回车！")
+		input()
+		input()
+	else:
+		raise Exception("你配置的文件夹中没有压缩包！")
 	return zip_
 
 

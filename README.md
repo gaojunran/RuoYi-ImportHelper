@@ -1,7 +1,7 @@
 # RuoYi-ImportHelper 若依代码导入助手
 
 ## 简介
-一个简易的Python脚本，将若依生成的代码压缩包预览、并直接放入各个目录中，同时自动执行SQL代码。
+一个简易的Python脚本，将若依生成的代码压缩包直接放入各个目录中，同时自动执行SQL代码。
 
 ## 使用简介
 1. 下载项目到本地，在本项目根目录运行`pip install -r requirements.txt`，安装依赖。
@@ -11,3 +11,10 @@
    - `ruoyi_path_vue`：若依项目前端代码路径，路径末尾应为`src`。
    - `mysql`：配置MySQL环境，以自动执行SQL语句。其中`if_execute_sql`字段为`false`，表示不执行SQL语句。
 3. 在`download_path`对应的路径有若依代码压缩包的情况下，使用Python解释器运行`cli.py`。
+
+## 注意事项
+1. `download`和`temp`文件夹中的文件均为示例。
+2. 建议在Python3.8+的环境下运行。
+3. 支持Windows、Linux等所有主流系统。
+
+欢迎给Issues和Star哦！希望这个小脚本能对你有所帮助！
